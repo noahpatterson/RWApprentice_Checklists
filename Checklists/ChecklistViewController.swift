@@ -57,6 +57,7 @@ class ChecklistViewController: UITableViewController {
                 default:
                     cell.accessoryType = .none
             }
+            tableView.deselectRow(at: indexPath, animated: true)
         }
     }
 }
