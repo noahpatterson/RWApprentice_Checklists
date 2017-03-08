@@ -10,6 +10,12 @@ import UIKit
 
 class ChecklistViewController: UITableViewController {
     
+    var row0item: ChecklistItem
+    var row1item: ChecklistItem
+    var row2item: ChecklistItem
+    var row3item: ChecklistItem
+    var row4item: ChecklistItem
+    
     //delegation - an object will often ask another for help with certain tasks. The object does only what it is good at and lets other objects take care of the rest
 
     override func viewDidLoad() {
