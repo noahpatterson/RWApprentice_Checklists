@@ -16,6 +16,30 @@ class ChecklistViewController: UITableViewController {
     var row3item: ChecklistItem
     var row4item: ChecklistItem
     
+    required init?(coder aDecoder: NSCoder) {
+        row0item = ChecklistItem()
+        row0item.text = "walk the dog"
+        row0item.checked = false
+        
+        row1item = ChecklistItem()
+        row1item.text = "Brush my teeth"
+        row1item.checked = true
+        
+        row2item = ChecklistItem()
+        row2item.text = "Learn iOS development"
+        row2item.checked = true
+        
+        row3item = ChecklistItem()
+        row3item.text = "Soccer practice"
+        row3item.checked = false
+        
+        row4item = ChecklistItem()
+        row4item.text = "Eat ice cream"
+        row4item.checked = true
+        
+        super.init(coder: aDecoder)
+    }
+    
     //delegation - an object will often ask another for help with certain tasks. The object does only what it is good at and lets other objects take care of the rest
 
     override func viewDidLoad() {
@@ -36,34 +60,56 @@ class ChecklistViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChecklistItem", for: indexPath)
         let label = cell.viewWithTag(1000) as! UILabel
         
-        switch indexPath.row % 5 {
-        case 0:
-            label.text = "Walk the dog"
-        case 1:
-            label.text = "Brush my teeth"
-        case 2:
-            label.text = "Learn iOS development"
-        case 3:
-            label.text = "Soccer practice"
-        case 4:
-            label.text = "Eat ice cream"
-        default:
-            break
+        if indexPath.row == 0 {
+            label.text = row0item.text
+        } else if indexPath.row == 1 {
+            label.text = row1item.text
+        } else if indexPath.row == 2 {
+            label.text = row2item.text
+        } else if indexPath.row == 3 {
+            label.text = row3item.text
+        } else if indexPath.row == 4 {
+            label.text = row4item.text
         }
+        configureCheckmark(for: cell, at: indexPath)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) {
-            switch cell.accessoryType {
-                case .none:
-                    cell.accessoryType = .checkmark
-            case .checkmark:
-                cell.accessoryType = .none
-                default:
-                    cell.accessoryType = .none
+            if indexPath.row == 0 {
+                row0item.checked = !row0item.checked
+            } else if indexPath.row == 1 {
+                row1item.checked = !row1item.checked
+            } else if indexPath.row == 2 {
+                row2item.checked = !row2item.checked
+            } else if indexPath.row == 3 {
+                row3item.checked = !row3item.checked
+            } else if indexPath.row == 4 {
+                row4item.checked = !row4item.checked
             }
+            configureCheckmark(for: cell, at: indexPath)
             tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
+    
+    func configureCheckmark(for cell: UITableViewCell, at indexPath: IndexPath) {
+        var isChecked = false
+        if indexPath.row == 0 {
+            isChecked = row0item.checked
+        } else if indexPath.row == 1 {
+            isChecked = row1item.checked
+        } else if indexPath.row == 2 {
+            isChecked = row2item.checked
+        } else if indexPath.row == 3 {
+            isChecked = row3item.checked
+        } else if indexPath.row == 4 {
+            isChecked = row4item.checked
+        }
+        if isChecked {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
         }
     }
 }
