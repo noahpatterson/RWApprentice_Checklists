@@ -20,6 +20,12 @@ class AddItemViewController: UITableViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //automatically open the keyboard when the scene loads
+        addItemTextField.becomeFirstResponder()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
