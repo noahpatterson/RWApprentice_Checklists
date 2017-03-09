@@ -77,6 +77,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                    <connections>
+                                                        <action selector="save" destination="91Z-wA-1Rm" eventType="editingDidEndOnExit" id="M3J-Zg-tk5"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -92,12 +95,12 @@
                     <navigationItem key="navigationItem" title="Add item" id="rlu-MF-ght">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="bHK-5n-Osq">
                             <connections>
-                                <action selector="cancel:" destination="91Z-wA-1Rm" id="odO-Nd-iDf"/>
+                                <action selector="cancel" destination="91Z-wA-1Rm" id="cnN-Wy-9Mw"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="f0r-5W-yYL">
                             <connections>
-                                <action selector="save:" destination="91Z-wA-1Rm" id="RcK-1L-8Sw"/>
+                                <action selector="save" destination="91Z-wA-1Rm" id="SL3-cJ-rMx"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

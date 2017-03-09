@@ -12,11 +12,11 @@ class AddItemViewController: UITableViewController {
     
     @IBOutlet weak var addItemTextField: UITextField!
     
-    @IBAction func cancel(_ sender: Any) {
+    @IBAction func cancel() {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func save(_ sender: Any) {
+    @IBAction func save() {
         dismiss(animated: true, completion: nil)
     }
     
