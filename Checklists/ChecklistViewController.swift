@@ -80,6 +80,15 @@ class ChecklistViewController: UITableViewController {
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        // this method allows swipe-to-delete by default. Remove the item from model and tableview
+        items.remove(at: indexPath.row)
+        
+        let indexPaths = [indexPath]
+        tableView.deleteRows(at: indexPaths, with: .automatic)
+    }
+    
     @IBAction func addItem(_ sender: Any) {
         let newIndexRow = items.count
         
