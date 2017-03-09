@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddItemViewController: UIViewController {
+class AddItemViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +19,14 @@ class AddItemViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func cancel(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func save(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
 
