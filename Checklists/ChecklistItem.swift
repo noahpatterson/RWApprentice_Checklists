@@ -12,6 +12,7 @@ class ChecklistItem  {
     var text = ""
     var checked = false
     
+    // objects should control their own state
     func toggleChecked() {
         checked = !checked
     }
