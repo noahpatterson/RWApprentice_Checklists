@@ -25,32 +25,9 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     required init?(coder aDecoder: NSCoder) {
         items = [ChecklistItem]()
         
-//        let row0item = ChecklistItem()
-//        row0item.text = "walk the dog"
-//        row0item.checked = false
-//        items.append(row0item)
-//        
-//        let row1item = ChecklistItem()
-//        row1item.text = "Brush my teeth"
-//        row1item.checked = true
-//        items.append(row1item)
-//        
-//        let row2item = ChecklistItem()
-//        row2item.text = "Learn iOS development"
-//        row2item.checked = true
-//        items.append(row2item)
-//        
-//        let row3item = ChecklistItem()
-//        row3item.text = "Soccer practice"
-//        row3item.checked = false
-//        items.append(row3item)
-//        
-//        let row4item = ChecklistItem()
-//        row4item.text = "Eat ice cream"
-//        row4item.checked = true
-//        items.append(row4item)
-        
         super.init(coder: aDecoder)
+        print("Documents Directory is: \(documentsDirectory())")
+        print("data file url is: \(dataFilePath())")
     }
     
     //delegation - an object will often ask another for help with certain tasks. The object does only what it is good at and lets other objects take care of the rest
@@ -163,6 +140,16 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     func configureText(for cell: UITableViewCell, with item: ChecklistItem) {
         let label = cell.viewWithTag(1000) as! UILabel
         label.text = item.text
+    }
+    
+    //use the docuements directory
+    func documentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    
+    func dataFilePath() -> URL {
+        return documentsDirectory().appendingPathComponent("Checklists.plist")
     }
 }
 
