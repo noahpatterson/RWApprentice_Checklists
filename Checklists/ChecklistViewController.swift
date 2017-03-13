@@ -65,6 +65,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
             
             configureCheckmark(for: cell, with: item)
             tableView.deselectRow(at: indexPath, animated: true)
+            saveChecklistItems()
         }
     }
     
@@ -74,6 +75,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         
         let indexPaths = [indexPath]
         tableView.deleteRows(at: indexPaths, with: .automatic)
+        saveChecklistItems()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -114,6 +116,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         let indexPaths = [indexPath]
         tableView.reloadRows(at: indexPaths, with: .automatic)
         dismiss(animated: true, completion: nil)
+        saveChecklistItems()
     }
     
     func addItem(with item: ChecklistItem) {
@@ -126,6 +129,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         let indexPaths = [indexPath]
         // have to tell the tableview about new rows as well as the model
         tableView.insertRows(at: indexPaths, with: .automatic)
+        saveChecklistItems()
     }
     
     func configureCheckmark(for cell: UITableViewCell, with item: ChecklistItem) {
@@ -150,6 +154,17 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     
     func dataFilePath() -> URL {
         return documentsDirectory().appendingPathComponent("Checklists.plist")
+    }
+    
+    //save the data to Checklists.plist
+    func saveChecklistItems() {
+        let data = NSMutableData()
+        let archiver = NSKeyedArchiver(forWritingWith: data)
+        
+        //requires items to apply to the NSCoding protocol
+        archiver.encode(items, forKey: "checklistItems")
+        archiver.finishEncoding()
+        data.write(to: dataFilePath(), atomically: true)
     }
 }
 
