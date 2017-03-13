@@ -55,14 +55,16 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
     
     //text field delegate
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let oldText = textField.text! as NSString
-        let newText = oldText.replacingCharacters(in: range, with: string) as NSString
+//        let oldText = textField.text! as NSString
+//        let newText = oldText.replacingCharacters(in: range, with: string) as NSString
+//        
+//        if newText.length > 0 {
+//            saveButton.isEnabled = true
+//        } else {
+//            saveButton.isEnabled = false
+//        }
+        saveButton.isEnabled = (string.characters.count > 0)
         
-        if newText.length > 0 {
-            saveButton.isEnabled = true
-        } else {
-            saveButton.isEnabled = false
-        }
         return true
     }
 
