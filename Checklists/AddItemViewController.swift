@@ -23,7 +23,7 @@ import UIKit
 protocol AddItemViewControllerDelegate: class {
     func addItemViewControllerDidCancel(_ controller: AddItemViewController)
     func addItemViewController(_ controller: AddItemViewController, didFinishAdding item: ChecklistItem)
-    func editItemViewController(_ controller: AddItemViewController, didFinishEditing item: ChecklistItem, at row: Int)
+    func addItemViewController(_ controller: AddItemViewController, didFinishEditing item: ChecklistItem, at row: Int)
 }
 
 class AddItemViewController: UITableViewController, UITextFieldDelegate {
@@ -52,7 +52,7 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func save() {
         if let item = itemToEdit {
             item.text = addItemTextField.text!
-            delegate?.editItemViewController(self, didFinishEditing: item, at: rowToEdit!)
+            delegate?.addItemViewController(self, didFinishEditing: item, at: rowToEdit!)
         } else {
             let item = ChecklistItem()
             

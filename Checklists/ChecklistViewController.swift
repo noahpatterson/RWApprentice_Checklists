@@ -130,7 +130,7 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         dismiss(animated: true, completion: nil)
     }
     
-    func editItemViewController(_ controller: AddItemViewController, didFinishEditing item: ChecklistItem, at row: Int) {
+    func addItemViewController(_ controller: AddItemViewController, didFinishEditing item: ChecklistItem, at row: Int) {
         items[row] = item
         
         let indexPath = IndexPath(row: row, section: 0)
