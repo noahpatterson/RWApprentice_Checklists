@@ -23,6 +23,7 @@ import UIKit
 protocol AddItemViewControllerDelegate: class {
     func addItemViewControllerDidCancel(_ controller: AddItemViewController)
     func addItemViewController(_ controller: AddItemViewController, didFinishAdding item: ChecklistItem)
+    func editItemViewController(_ controller: AddItemViewController, didFinishEditing item: ChecklistItem, at row: Int)
 }
 
 class AddItemViewController: UITableViewController, UITextFieldDelegate {
@@ -41,18 +42,24 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
     
     //
     weak var delegate: AddItemViewControllerDelegate?
+    var itemToEdit: ChecklistItem?
+    var rowToEdit: Int?
     
     @IBAction func cancel() {
-//        dismiss(animated: true, completion: nil)
         delegate?.addItemViewControllerDidCancel(self)
     }
     
     @IBAction func save() {
-//        dismiss(animated: true, completion: nil)
-        let item = ChecklistItem()
-        item.text = addItemTextField.text!
-        
-        delegate?.addItemViewController(self, didFinishAdding: item)
+        if let item = itemToEdit {
+            item.text = addItemTextField.text!
+            delegate?.editItemViewController(self, didFinishEditing: item, at: rowToEdit!)
+        } else {
+            let item = ChecklistItem()
+            
+            item.text = addItemTextField.text!
+            
+            delegate?.addItemViewController(self, didFinishAdding: item)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,6 +73,11 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let item = itemToEdit {
+            title = "Edit Item"
+            addItemTextField.text = item.text
+            saveButton.isEnabled = true
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -94,15 +106,4 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
         
         return true
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

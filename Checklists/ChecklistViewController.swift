@@ -107,6 +107,18 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
             let controller    = navController.topViewController as! AddItemViewController
             controller.delegate = self
         }
+        
+        if segue.identifier == "EditItem" {
+            let navController = segue.destination as! UINavigationController
+            //refers to the screen that is currently in view of the navController
+            let controller    = navController.topViewController as! AddItemViewController
+            controller.delegate = self
+            
+            if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
+                controller.itemToEdit = items[indexPath.row]
+                controller.rowToEdit  = indexPath.row
+            }
+        }
     }
     
     func addItemViewControllerDidCancel(_ controller: AddItemViewController) {
@@ -115,6 +127,15 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
     
     func addItemViewController(_ controller: AddItemViewController, didFinishAdding item: ChecklistItem) {
         addItem(with: item)
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func editItemViewController(_ controller: AddItemViewController, didFinishEditing item: ChecklistItem, at row: Int) {
+        items[row] = item
+        
+        let indexPath = IndexPath(row: row, section: 0)
+        let indexPaths = [indexPath]
+        tableView.reloadRows(at: indexPaths, with: .automatic)
         dismiss(animated: true, completion: nil)
     }
     
@@ -131,10 +152,11 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
     }
     
     func configureCheckmark(for cell: UITableViewCell, with item: ChecklistItem) {
+        let label = cell.viewWithTag(1001) as! UILabel
         if item.checked {
-            cell.accessoryType = .checkmark
+            label.text = "✔︎"
         } else {
-            cell.accessoryType = .none
+            label.text = ""
         }
     }
     
