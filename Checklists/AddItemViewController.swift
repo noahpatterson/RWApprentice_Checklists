@@ -6,7 +6,24 @@
 //  Copyright © 2017 noahpatterson. All rights reserved.
 //
 
+/*
+ Delegates in five easy steps
+ These are the steps for setting up the delegate pattern between two objects, where object A is the delegate for object B, and object B will send messages back to A. The steps are:
+ 1 - Define a delegate protocol for object B.
+ 2 - Give object B a delegate optional variable. This variable should be weak.
+ 3 - Make object B send messages to its delegate when something interesting happens, such as the user pressing the Cancel or Done buttons, or when it needs a piece of information. You write delegate?.methodName(self, . . .)
+ 4 - Make object A conform to the delegate protocol. It should put the name of the protocol in its class line and implement the methods from the protocol.
+ 5 - Tell object B that object A is now its delegate.
+ */
+
 import UIKit
+
+// make a delegate protocol for the caller of this viewController to be able to respond to actions
+// of this view controller.
+protocol AddItemViewControllerDelegate: class {
+    func addItemViewControllerDidCancel(_ controller: AddItemViewController)
+    func addItemViewController(_ controller: AddItemViewController, didFinishAdding item: ChecklistItem)
+}
 
 class AddItemViewController: UITableViewController, UITextFieldDelegate {
     /*
@@ -15,17 +32,27 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
     2. let the object know that it has a delegate parent
     3. Implement delegate methods in parent
     */
+    
+    
  
     @IBOutlet weak var addItemTextField: UITextField!
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
+    //
+    weak var delegate: AddItemViewControllerDelegate?
+    
     @IBAction func cancel() {
-        dismiss(animated: true, completion: nil)
+//        dismiss(animated: true, completion: nil)
+        delegate?.addItemViewControllerDidCancel(self)
     }
     
     @IBAction func save() {
-        dismiss(animated: true, completion: nil)
+//        dismiss(animated: true, completion: nil)
+        let item = ChecklistItem()
+        item.text = addItemTextField.text!
+        
+        delegate?.addItemViewController(self, didFinishAdding: item)
     }
     
     override func viewWillAppear(_ animated: Bool) {
