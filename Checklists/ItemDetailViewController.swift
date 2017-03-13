@@ -1,5 +1,5 @@
 //
-//  AddItemViewController.swift
+//  ItemDetailViewController.swift
 //  Checklists
 //
 //  Created by Noah Patterson on 3/9/17.
@@ -20,13 +20,13 @@ import UIKit
 
 // make a delegate protocol for the caller of this viewController to be able to respond to actions
 // of this view controller.
-protocol AddItemViewControllerDelegate: class {
-    func addItemViewControllerDidCancel(_ controller: AddItemViewController)
-    func addItemViewController(_ controller: AddItemViewController, didFinishAdding item: ChecklistItem)
-    func addItemViewController(_ controller: AddItemViewController, didFinishEditing item: ChecklistItem, at row: Int)
+protocol ItemDetailViewControllerDelegate: class {
+    func itemDetailViewControllerDidCancel(_ controller: ItemDetailViewController)
+    func itemDetailViewController(_ controller: ItemDetailViewController, didFinishAdding item: ChecklistItem)
+    func itemDetailViewController(_ controller: ItemDetailViewController, didFinishEditing item: ChecklistItem, at row: Int)
 }
 
-class AddItemViewController: UITableViewController, UITextFieldDelegate {
+class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     /*
     Three steps to delegation:
     1. declare parent view controller as capable of being a delegate
@@ -41,24 +41,24 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     //
-    weak var delegate: AddItemViewControllerDelegate?
+    weak var delegate: ItemDetailViewControllerDelegate?
     var itemToEdit: ChecklistItem?
     var rowToEdit: Int?
     
     @IBAction func cancel() {
-        delegate?.addItemViewControllerDidCancel(self)
+        delegate?.itemDetailViewControllerDidCancel(self)
     }
     
     @IBAction func save() {
         if let item = itemToEdit {
             item.text = addItemTextField.text!
-            delegate?.addItemViewController(self, didFinishEditing: item, at: rowToEdit!)
+            delegate?.itemDetailViewController(self, didFinishEditing: item, at: rowToEdit!)
         } else {
             let item = ChecklistItem()
             
             item.text = addItemTextField.text!
             
-            delegate?.addItemViewController(self, didFinishAdding: item)
+            delegate?.itemDetailViewController(self, didFinishAdding: item)
         }
     }
     

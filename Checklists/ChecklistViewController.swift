@@ -18,7 +18,7 @@
 
 import UIKit
 
-class ChecklistViewController: UITableViewController, AddItemViewControllerDelegate {
+class ChecklistViewController: UITableViewController, ItemDetailViewControllerDelegate {
     
     var items: [ChecklistItem]
     
@@ -104,14 +104,14 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         if segue.identifier == "AddItem" {
             let navController = segue.destination as! UINavigationController
             //refers to the screen that is currently in view of the navController
-            let controller    = navController.topViewController as! AddItemViewController
+            let controller    = navController.topViewController as! ItemDetailViewController
             controller.delegate = self
         }
         
         if segue.identifier == "EditItem" {
             let navController = segue.destination as! UINavigationController
             //refers to the screen that is currently in view of the navController
-            let controller    = navController.topViewController as! AddItemViewController
+            let controller    = navController.topViewController as! ItemDetailViewController
             controller.delegate = self
             
             if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
@@ -121,16 +121,16 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         }
     }
     
-    func addItemViewControllerDidCancel(_ controller: AddItemViewController) {
+    func itemDetailViewControllerDidCancel(_ controller: ItemDetailViewController) {
         dismiss(animated: true, completion: nil)
     }
     
-    func addItemViewController(_ controller: AddItemViewController, didFinishAdding item: ChecklistItem) {
+    func itemDetailViewController(_ controller: ItemDetailViewController, didFinishAdding item: ChecklistItem) {
         addItem(with: item)
         dismiss(animated: true, completion: nil)
     }
     
-    func addItemViewController(_ controller: AddItemViewController, didFinishEditing item: ChecklistItem, at row: Int) {
+    func itemDetailViewController(_ controller: ItemDetailViewController, didFinishEditing item: ChecklistItem, at row: Int) {
         items[row] = item
         
         let indexPath = IndexPath(row: row, section: 0)
