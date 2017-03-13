@@ -98,7 +98,7 @@
                                 <action selector="cancel" destination="91Z-wA-1Rm" id="cnN-Wy-9Mw"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="f0r-5W-yYL">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="save" id="f0r-5W-yYL">
                             <connections>
                                 <action selector="save" destination="91Z-wA-1Rm" id="SL3-cJ-rMx"/>
                             </connections>
@@ -106,6 +106,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addItemTextField" destination="jaV-ZF-myJ" id="4oQ-oe-jgd"/>
+                        <outlet property="saveButton" destination="f0r-5W-yYL" id="Zks-6j-Bnf"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X9u-dd-7W0" userLabel="First Responder" sceneMemberID="firstResponder"/>

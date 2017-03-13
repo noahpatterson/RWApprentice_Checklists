@@ -8,9 +8,17 @@
 
 import UIKit
 
-class AddItemViewController: UITableViewController {
-    
+class AddItemViewController: UITableViewController, UITextFieldDelegate {
+    /*
+    Three steps to delegation:
+    1. declare parent view controller as capable of being a delegate
+    2. let the object know that it has a delegate parent
+    3. Implement delegate methods in parent
+    */
+ 
     @IBOutlet weak var addItemTextField: UITextField!
+    
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     @IBAction func cancel() {
         dismiss(animated: true, completion: nil)
@@ -25,6 +33,7 @@ class AddItemViewController: UITableViewController {
         
         //automatically open the keyboard when the scene loads
         addItemTextField.becomeFirstResponder()
+        addItemTextField.delegate = self
     }
     
     override func viewDidLoad() {
@@ -42,6 +51,19 @@ class AddItemViewController: UITableViewController {
         
         //returning nil here says that the row is not selectable
         return nil
+    }
+    
+    //text field delegate
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let oldText = textField.text! as NSString
+        let newText = oldText.replacingCharacters(in: range, with: string) as NSString
+        
+        if newText.length > 0 {
+            saveButton.isEnabled = true
+        } else {
+            saveButton.isEnabled = false
+        }
+        return true
     }
 
     /*
