@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AllListsViewController: UITableViewController {
+class AllListsViewController: UITableViewController, ListDetailViewControllerDelegate {
     var checklists: [Checklist]
     
     required init?(coder aDecoder: NSCoder) {
@@ -63,19 +63,31 @@ class AllListsViewController: UITableViewController {
         if segue.identifier == "ShowChecklist" {
             let controller = segue.destination as! ChecklistViewController
             controller.checklist = sender as! Checklist
+        } else if segue.identifier == "AddChecklist" {
+            let navCont = segue.destination as! UINavigationController
+            let controller = navCont.topViewController as! ListDetailViewController
+            controller.delegate = self
+            controller.checkListToEdit = nil
         }
     }
     
-    func addChecklist() {
-        let newIndexRow = checklists.count
-        let checklist = Checklist(name: "a new checklist")
-        checklists.append(checklist)
-        
-        //tell the table view to update itself
-        let indexPath = IndexPath(row: newIndexRow, section: 0)
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        checklists.remove(at: indexPath.row)
         let indexPaths = [indexPath]
-        // have to tell the tableview about new rows as well as the model
-        tableView.insertRows(at: indexPaths, with: .automatic)
+        tableView.deleteRows(at: indexPaths, with: .automatic)
+    }
+    
+    func addChecklist() {
+        performSegue(withIdentifier: "AddChecklist", sender: nil)
+//        let newIndexRow = checklists.count
+//        let checklist = Checklist(name: "a new checklist")
+//        checklists.append(checklist)
+//        
+//        //tell the table view to update itself
+//        let indexPath = IndexPath(row: newIndexRow, section: 0)
+//        let indexPaths = [indexPath]
+//        // have to tell the tableview about new rows as well as the model
+//        tableView.insertRows(at: indexPaths, with: .automatic)
     }
     
     // create a tableview cell by code
@@ -106,6 +118,31 @@ class AllListsViewController: UITableViewController {
             checklists = unarchiver.decodeObject(forKey: "checklists") as! [Checklist]
             unarchiver.finishDecoding()
         }
+    }
+    
+    func listDetailViewControllerDidCancel(_ controller: ListDetailViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func listDetailViewController(_ controller: ListDetailViewController, didFinishAdding checklist: Checklist) {
+        let newRowIndex = checklists.count
+        checklists.append(checklist)
+        
+        let indexPath = IndexPath(row: newRowIndex, section: 0)
+        let indexPaths = [indexPath]
+        tableView.insertRows(at: indexPaths, with: .automatic)
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func listDetailViewController(_ controller: ListDetailViewController, didFinishEditing checklist: Checklist) {
+        if let index = checklists.index(of: checklist) {
+            let indexPath = IndexPath(row: index, section: 0)
+            if let cell = tableView.cellForRow(at: indexPath) {
+                cell.textLabel!.text = checklist.name
+            }
+        }
+        dismiss(animated: true, completion: nil)
     }
 
     /*
