@@ -127,7 +127,7 @@
         <!--Navigation Controller-->
         <scene sceneID="uKe-2T-FTd">
             <objects>
-                <navigationController id="2P8-1r-hnc" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ListDetailNavigationController" id="2P8-1r-hnc" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MCL-ZS-FHC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

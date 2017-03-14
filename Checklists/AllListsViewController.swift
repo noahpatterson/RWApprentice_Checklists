@@ -77,6 +77,15 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         tableView.deleteRows(at: indexPaths, with: .automatic)
     }
     
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        let navigationController = storyboard!.instantiateViewController(withIdentifier: "ListDetailNavigationController") as! UINavigationController
+        let controller = navigationController.topViewController as! ListDetailViewController
+        controller.delegate = self
+        controller.checkListToEdit = checklists[indexPath.row]
+        
+        present(navigationController, animated: true, completion: nil)
+    }
+    
     func addChecklist() {
         performSegue(withIdentifier: "AddChecklist", sender: nil)
 //        let newIndexRow = checklists.count
