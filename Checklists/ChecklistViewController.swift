@@ -26,8 +26,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         items = [ChecklistItem]()
         
         super.init(coder: aDecoder)
-        print("Documents Directory is: \(documentsDirectory())")
-        print("data file url is: \(dataFilePath())")
+        loadChecklistItems()
     }
     
     //delegation - an object will often ask another for help with certain tasks. The object does only what it is good at and lets other objects take care of the rest
@@ -97,6 +96,16 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
                 controller.itemToEdit = items[indexPath.row]
                 controller.rowToEdit  = indexPath.row
             }
+        }
+    }
+    
+    func loadChecklistItems() {
+        let path = dataFilePath()
+        
+        if let data = try? Data(contentsOf: path) {
+            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+            items = unarchiver.decodeObject(forKey: "checklistItems") as! [ChecklistItem]
+            unarchiver.finishDecoding()
         }
     }
     
