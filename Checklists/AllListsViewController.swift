@@ -32,7 +32,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         navigationController?.delegate = self
         
         let index = dataModel.indexOfSelectedChecklist
-        if index != -1 {
+        if index >= 0 && index < dataModel.checklists.count {
             performSegue(withIdentifier: "ShowChecklist", sender: dataModel.checklists[index])
         }
     }
