@@ -9,19 +9,17 @@
 import UIKit
 
 class AllListsViewController: UITableViewController, ListDetailViewControllerDelegate {
-    var checklists: [Checklist]
-    
-    required init?(coder aDecoder: NSCoder) {
-        checklists = [Checklist]()
-        super.init(coder: aDecoder)
-        loadChecklists()
-    }
 
+    var dataModel: DataModel!
+    var checklists: [Checklist]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(addChecklist))
         self.navigationItem.rightBarButtonItem = addButton
+        
+        checklists = dataModel.checklists
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -133,35 +131,6 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         }
         dismiss(animated: true, completion: nil)
     }
-    
-    //data loading and saving
-    func documentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
-    }
-    
-    func dataFilePath() -> URL {
-        return documentsDirectory().appendingPathComponent("Checklists.plist")
-    }
-    
-    func saveChecklists() {
-        let data = NSMutableData()
-        let archiver = NSKeyedArchiver(forWritingWith: data)
-        
-        archiver.encode(checklists, forKey: "Checklists")
-        archiver.finishEncoding()
-        data.write(to: dataFilePath(), atomically: true)
-    }
-    
-    func loadChecklists() {
-        let path = dataFilePath()
-        if let data = try? Data(contentsOf: path) {
-            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
-            checklists = unarchiver.decodeObject(forKey: "Checklists") as! [Checklist]
-            unarchiver.finishDecoding()
-        }
-    }
-
 
     /*
     // Override to support conditional editing of the table view.
