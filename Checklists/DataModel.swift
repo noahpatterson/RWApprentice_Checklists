@@ -71,4 +71,10 @@ class DataModel {
             userDefaults.synchronize()
         }
     }
+    
+    func updateAllChecklistSubtitles() {
+        for list in checklists {
+            
+        }
+    }
 }

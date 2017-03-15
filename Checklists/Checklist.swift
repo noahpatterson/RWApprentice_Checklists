@@ -31,4 +31,22 @@ class Checklist: NSObject, NSCoding {
         aCoder.encode(name, forKey: "Name")
         aCoder.encode(items, forKey: "Items")
     }
+    
+    func countUncheckedItems() -> Int {
+        return items.filter({ $0.checked == false }).count
+    }
+    
+    func createSubtitleForCell() -> String {
+        let numUnChecked = countUncheckedItems()
+        
+        if items.count == 0 {
+            return "(no items)"
+        }
+        
+        if numUnChecked == 0 {
+            return "All Done!"
+        }
+        
+        return "\(numUnChecked) remaining"
+    }
 }

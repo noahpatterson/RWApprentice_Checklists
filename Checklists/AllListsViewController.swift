@@ -55,6 +55,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         let cell = makeCell(for: tableView)
         let checklist = dataModel.checklists[indexPath.row]
         cell.textLabel!.text = checklist.name
+        cell.detailTextLabel!.text = checklist.createSubtitleForCell()
         cell.accessoryType = .detailDisclosureButton
         
         return cell
@@ -117,7 +118,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         if let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) {
             return cell
         } else {
-            return UITableViewCell(style: .default, reuseIdentifier: cellIdentifier)
+            return UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
         }
     }
     
@@ -149,6 +150,10 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     //navigation delegate
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         if viewController === self {
+            let oldIndex = dataModel.indexOfSelectedChecklist
+            let cell = tableView.cellForRow(at: IndexPath(row: oldIndex, section: 0))
+            
+            cell?.detailTextLabel!.text = dataModel.checklists[oldIndex].createSubtitleForCell()
             dataModel.indexOfSelectedChecklist = -1
         }
     }
