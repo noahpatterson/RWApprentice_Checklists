@@ -19,14 +19,14 @@ class Checklist: NSObject, NSCoding {
         iconName = aDecoder.decodeObject(forKey: "IconName") as! String
         super.init()
     }
-//    
-//    override init() {
-//        super.init()
-//    }
-//    
-    init(name: String) {
-        self.name = name
-        iconName = "No Icon"
+
+    convenience init(name: String) {
+        self.init(name: name, iconName: "No Icon")
+    }
+    
+    init(name: String, iconName: String) {
+        self.name     = name
+        self.iconName = iconName
         super.init()
     }
     
