@@ -61,6 +61,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         let checklist = dataModel.checklists[indexPath.row]
         cell.textLabel!.text = checklist.name
         cell.detailTextLabel!.text = checklist.createSubtitleForCell()
+        cell.imageView!.image = UIImage(named: checklist.iconName)
         cell.accessoryType = .detailDisclosureButton
         
         return cell
@@ -165,7 +166,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         
         dismiss(animated: true, completion: nil)
     }
-    
+
     //navigation delegate
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         if viewController === self {

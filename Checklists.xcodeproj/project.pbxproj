@@ -7,6 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A21C2E51E80AC4C0032AEA3 /* Appointments@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A21C2D11E80AC4C0032AEA3 /* Appointments@2x.png */; };
+		5A21C2E61E80AC4C0032AEA3 /* Appointments@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A21C2D21E80AC4C0032AEA3 /* Appointments@3x.png */; };
+		5A21C2E71E80AC4C0032AEA3 /* Birthdays@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A21C2D31E80AC4C0032AEA3 /* Birthdays@2x.png */; };
+		5A21C2E81E80AC4C0032AEA3 /* Birthdays@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A21C2D41E80AC4C0032AEA3 /* Birthdays@3x.png */; };
+		5A21C2E91E80AC4C0032AEA3 /* Chores@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A21C2D51E80AC4C0032AEA3 /* Chores@2x.png */; };
+		5A21C2EA1E80AC4C0032AEA3 /* Chores@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A21C2D61E80AC4C0032AEA3 /* Chores@3x.png */; };
+		5A21C2EB1E80AC4C0032AEA3 /* Drinks@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A21C2D71E80AC4C0032AEA3 /* Drinks@2x.png */; };
+		5A21C2EC1E80AC4C0032AEA3 /* Drinks@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A21C2D81E80AC4C0032AEA3 /* Drinks@3x.png */; };
+		5A21C2ED1E80AC4C0032AEA3 /* Folder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A21C2D91E80AC4C0032AEA3 /* Folder@2x.png */; };
+		5A21C2EE1E80AC4C0032AEA3 /* Folder@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A21C2DA1E80AC4C0032AEA3 /* Folder@3x.png */; };
+		5A21C2EF1E80AC4C0032AEA3 /* Groceries@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A21C2DB1E80AC4C0032AEA3 /* Groceries@2x.png */; };
+		5A21C2F01E80AC4C0032AEA3 /* Groceries@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A21C2DC1E80AC4C0032AEA3 /* Groceries@3x.png */; };
+		5A21C2F11E80AC4C0032AEA3 /* Inbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A21C2DD1E80AC4C0032AEA3 /* Inbox@2x.png */; };
+		5A21C2F21E80AC4C0032AEA3 /* Inbox@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A21C2DE1E80AC4C0032AEA3 /* Inbox@3x.png */; };
+		5A21C2F31E80AC4C0032AEA3 /* No Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A21C2DF1E80AC4C0032AEA3 /* No Icon@2x.png */; };
+		5A21C2F41E80AC4C0032AEA3 /* No Icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A21C2E01E80AC4C0032AEA3 /* No Icon@3x.png */; };
+		5A21C2F51E80AC4C0032AEA3 /* Photos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A21C2E11E80AC4C0032AEA3 /* Photos@2x.png */; };
+		5A21C2F61E80AC4C0032AEA3 /* Photos@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A21C2E21E80AC4C0032AEA3 /* Photos@3x.png */; };
+		5A21C2F71E80AC4C0032AEA3 /* Trips@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A21C2E31E80AC4C0032AEA3 /* Trips@2x.png */; };
+		5A21C2F81E80AC4C0032AEA3 /* Trips@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A21C2E41E80AC4C0032AEA3 /* Trips@3x.png */; };
+		5A21C2FA1E80AF660032AEA3 /* IconPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A21C2F91E80AF660032AEA3 /* IconPickerViewController.swift */; };
 		5A7F24311E781492007DA7E7 /* AllListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7F24301E781492007DA7E7 /* AllListsViewController.swift */; };
 		5A7F24331E781DBE007DA7E7 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7F24321E781DBE007DA7E7 /* Checklist.swift */; };
 		5A7F24371E782D33007DA7E7 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7F24361E782D33007DA7E7 /* ListDetailViewController.swift */; };
@@ -22,6 +43,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A21C2D11E80AC4C0032AEA3 /* Appointments@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Appointments@2x.png"; sourceTree = "<group>"; };
+		5A21C2D21E80AC4C0032AEA3 /* Appointments@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Appointments@3x.png"; sourceTree = "<group>"; };
+		5A21C2D31E80AC4C0032AEA3 /* Birthdays@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Birthdays@2x.png"; sourceTree = "<group>"; };
+		5A21C2D41E80AC4C0032AEA3 /* Birthdays@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Birthdays@3x.png"; sourceTree = "<group>"; };
+		5A21C2D51E80AC4C0032AEA3 /* Chores@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chores@2x.png"; sourceTree = "<group>"; };
+		5A21C2D61E80AC4C0032AEA3 /* Chores@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chores@3x.png"; sourceTree = "<group>"; };
+		5A21C2D71E80AC4C0032AEA3 /* Drinks@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Drinks@2x.png"; sourceTree = "<group>"; };
+		5A21C2D81E80AC4C0032AEA3 /* Drinks@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Drinks@3x.png"; sourceTree = "<group>"; };
+		5A21C2D91E80AC4C0032AEA3 /* Folder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Folder@2x.png"; sourceTree = "<group>"; };
+		5A21C2DA1E80AC4C0032AEA3 /* Folder@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Folder@3x.png"; sourceTree = "<group>"; };
+		5A21C2DB1E80AC4C0032AEA3 /* Groceries@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Groceries@2x.png"; sourceTree = "<group>"; };
+		5A21C2DC1E80AC4C0032AEA3 /* Groceries@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Groceries@3x.png"; sourceTree = "<group>"; };
+		5A21C2DD1E80AC4C0032AEA3 /* Inbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Inbox@2x.png"; sourceTree = "<group>"; };
+		5A21C2DE1E80AC4C0032AEA3 /* Inbox@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Inbox@3x.png"; sourceTree = "<group>"; };
+		5A21C2DF1E80AC4C0032AEA3 /* No Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "No Icon@2x.png"; sourceTree = "<group>"; };
+		5A21C2E01E80AC4C0032AEA3 /* No Icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "No Icon@3x.png"; sourceTree = "<group>"; };
+		5A21C2E11E80AC4C0032AEA3 /* Photos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Photos@2x.png"; sourceTree = "<group>"; };
+		5A21C2E21E80AC4C0032AEA3 /* Photos@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Photos@3x.png"; sourceTree = "<group>"; };
+		5A21C2E31E80AC4C0032AEA3 /* Trips@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Trips@2x.png"; sourceTree = "<group>"; };
+		5A21C2E41E80AC4C0032AEA3 /* Trips@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Trips@3x.png"; sourceTree = "<group>"; };
+		5A21C2F91E80AF660032AEA3 /* IconPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconPickerViewController.swift; sourceTree = "<group>"; };
 		5A7F24301E781492007DA7E7 /* AllListsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllListsViewController.swift; sourceTree = "<group>"; };
 		5A7F24321E781DBE007DA7E7 /* Checklist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 		5A7F24361E782D33007DA7E7 /* ListDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +91,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A21C2D01E80AC4C0032AEA3 /* Checklist Icons */ = {
+			isa = PBXGroup;
+			children = (
+				5A21C2D11E80AC4C0032AEA3 /* Appointments@2x.png */,
+				5A21C2D21E80AC4C0032AEA3 /* Appointments@3x.png */,
+				5A21C2D31E80AC4C0032AEA3 /* Birthdays@2x.png */,
+				5A21C2D41E80AC4C0032AEA3 /* Birthdays@3x.png */,
+				5A21C2D51E80AC4C0032AEA3 /* Chores@2x.png */,
+				5A21C2D61E80AC4C0032AEA3 /* Chores@3x.png */,
+				5A21C2D71E80AC4C0032AEA3 /* Drinks@2x.png */,
+				5A21C2D81E80AC4C0032AEA3 /* Drinks@3x.png */,
+				5A21C2D91E80AC4C0032AEA3 /* Folder@2x.png */,
+				5A21C2DA1E80AC4C0032AEA3 /* Folder@3x.png */,
+				5A21C2DB1E80AC4C0032AEA3 /* Groceries@2x.png */,
+				5A21C2DC1E80AC4C0032AEA3 /* Groceries@3x.png */,
+				5A21C2DD1E80AC4C0032AEA3 /* Inbox@2x.png */,
+				5A21C2DE1E80AC4C0032AEA3 /* Inbox@3x.png */,
+				5A21C2DF1E80AC4C0032AEA3 /* No Icon@2x.png */,
+				5A21C2E01E80AC4C0032AEA3 /* No Icon@3x.png */,
+				5A21C2E11E80AC4C0032AEA3 /* Photos@2x.png */,
+				5A21C2E21E80AC4C0032AEA3 /* Photos@3x.png */,
+				5A21C2E31E80AC4C0032AEA3 /* Trips@2x.png */,
+				5A21C2E41E80AC4C0032AEA3 /* Trips@3x.png */,
+			);
+			path = "Checklist Icons";
+			sourceTree = "<group>";
+		};
 		5A7F24341E781F74007DA7E7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +135,7 @@
 				5A9740651E71B95000202C3A /* ItemDetailViewController.swift */,
 				5A7F24301E781492007DA7E7 /* AllListsViewController.swift */,
 				5A7F24361E782D33007DA7E7 /* ListDetailViewController.swift */,
+				5A21C2F91E80AF660032AEA3 /* IconPickerViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -92,6 +162,7 @@
 				5AAEF80E1E65AFD100D14A56 /* AppDelegate.swift */,
 				5A7F24351E781F7F007DA7E7 /* Controllers */,
 				5AAEF8121E65AFD100D14A56 /* Main.storyboard */,
+				5A21C2D01E80AC4C0032AEA3 /* Checklist Icons */,
 				5AAEF8151E65AFD100D14A56 /* Assets.xcassets */,
 				5AAEF8171E65AFD100D14A56 /* LaunchScreen.storyboard */,
 				5AAEF81A1E65AFD100D14A56 /* Info.plist */,
@@ -161,9 +232,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A21C2E81E80AC4C0032AEA3 /* Birthdays@3x.png in Resources */,
+				5A21C2F31E80AC4C0032AEA3 /* No Icon@2x.png in Resources */,
 				5AAEF8191E65AFD100D14A56 /* LaunchScreen.storyboard in Resources */,
+				5A21C2F21E80AC4C0032AEA3 /* Inbox@3x.png in Resources */,
+				5A21C2F01E80AC4C0032AEA3 /* Groceries@3x.png in Resources */,
 				5AAEF8161E65AFD100D14A56 /* Assets.xcassets in Resources */,
+				5A21C2F81E80AC4C0032AEA3 /* Trips@3x.png in Resources */,
+				5A21C2E51E80AC4C0032AEA3 /* Appointments@2x.png in Resources */,
+				5A21C2EA1E80AC4C0032AEA3 /* Chores@3x.png in Resources */,
+				5A21C2E71E80AC4C0032AEA3 /* Birthdays@2x.png in Resources */,
+				5A21C2EF1E80AC4C0032AEA3 /* Groceries@2x.png in Resources */,
+				5A21C2E61E80AC4C0032AEA3 /* Appointments@3x.png in Resources */,
+				5A21C2F11E80AC4C0032AEA3 /* Inbox@2x.png in Resources */,
+				5A21C2F61E80AC4C0032AEA3 /* Photos@3x.png in Resources */,
+				5A21C2F41E80AC4C0032AEA3 /* No Icon@3x.png in Resources */,
+				5A21C2E91E80AC4C0032AEA3 /* Chores@2x.png in Resources */,
+				5A21C2F71E80AC4C0032AEA3 /* Trips@2x.png in Resources */,
 				5AAEF8141E65AFD100D14A56 /* Main.storyboard in Resources */,
+				5A21C2F51E80AC4C0032AEA3 /* Photos@2x.png in Resources */,
+				5A21C2EB1E80AC4C0032AEA3 /* Drinks@2x.png in Resources */,
+				5A21C2ED1E80AC4C0032AEA3 /* Folder@2x.png in Resources */,
+				5A21C2EC1E80AC4C0032AEA3 /* Drinks@3x.png in Resources */,
+				5A21C2EE1E80AC4C0032AEA3 /* Folder@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +268,7 @@
 				5AAEF8111E65AFD100D14A56 /* ChecklistViewController.swift in Sources */,
 				5A9740661E71B95000202C3A /* ItemDetailViewController.swift in Sources */,
 				5A7F24331E781DBE007DA7E7 /* Checklist.swift in Sources */,
+				5A21C2FA1E80AF660032AEA3 /* IconPickerViewController.swift in Sources */,
 				5ADFAF261E70A5D3004C1BA6 /* ChecklistItem.swift in Sources */,
 				5A7F24311E781492007DA7E7 /* AllListsViewController.swift in Sources */,
 				5AAEF80F1E65AFD100D14A56 /* AppDelegate.swift in Sources */,
