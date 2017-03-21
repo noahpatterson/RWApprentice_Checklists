@@ -25,6 +25,11 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //        tableView.reloadData()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -127,23 +132,37 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     }
     
     func listDetailViewController(_ controller: ListDetailViewController, didFinishAdding checklist: Checklist) {
-        let newRowIndex = dataModel.checklists.count
+        //let newRowIndex = dataModel.checklists.count
         dataModel.checklists.append(checklist)
         
-        let indexPath = IndexPath(row: newRowIndex, section: 0)
-        let indexPaths = [indexPath]
-        tableView.insertRows(at: indexPaths, with: .automatic)
+//        let indexPath = IndexPath(row: newRowIndex, section: 0)
+//        let indexPaths = [indexPath]
+//        tableView.insertRows(at: indexPaths, with: .automatic)
+        
+        
+        // all the data needs to be sorted when a new row is added so we'll have to reload the data. Reloading the data automatically inserts the rows
+        dataModel.sortChecklists()
+        tableView.reloadData()
         
         dismiss(animated: true, completion: nil)
     }
     
     func listDetailViewController(_ controller: ListDetailViewController, didFinishEditing checklist: Checklist) {
+        var oldChecklistName: String?
         if let index = dataModel.checklists.index(of: checklist) {
             let indexPath = IndexPath(row: index, section: 0)
             if let cell = tableView.cellForRow(at: indexPath) {
+                oldChecklistName = cell.textLabel!.text
                 cell.textLabel!.text = checklist.name
             }
         }
+        
+        //only sort and reload if name actually changed
+        if let oldName = oldChecklistName, oldName != checklist.name {
+            dataModel.sortChecklists()
+            tableView.reloadData()
+        }
+        
         dismiss(animated: true, completion: nil)
     }
     
