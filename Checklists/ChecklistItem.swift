@@ -23,6 +23,16 @@ class ChecklistItem: NSObject, NSCoding  {
         super.init()
     }
     
+    convenience init(text: String) {
+        self.init(text: text, checked: false)
+    }
+    
+    init(text: String, checked: Bool) {
+        self.text = text
+        self.checked = checked
+        super.init()
+    }
+    
     // objects should control their own state
     func toggleChecked() {
         checked = !checked
