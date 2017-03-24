@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UserNotifications
 
 class ChecklistItem: NSObject, NSCoding  {
     var text = ""
@@ -39,6 +40,32 @@ class ChecklistItem: NSObject, NSCoding  {
     // objects should control their own state
     func toggleChecked() {
         checked = !checked
+    }
+    
+    func scheduleNotification() {
+        if shouldRemind && dueDate > Date() {
+            //fill out notification message
+            let content = UNMutableNotificationContent()
+            content.title = "Reminder:"
+            content.body  = text
+            content.sound = UNNotificationSound.default()
+            
+            //extract the time items from dueDate
+            let calendar = Calendar(identifier: .gregorian)
+            let components = calendar.dateComponents([.month, .day, .hour, .minute], from: dueDate)
+            
+            //a calendar trigger shows at a specific date instead of UNTimeIntervalNotificationTrigger which is in a number of seconds
+            let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
+            
+            //add the unique identifier so we can find the notification later to cancel it
+            let request = UNNotificationRequest(identifier: "\(itemID)", content: content, trigger: trigger)
+            
+            //hook it up
+            let center = UNUserNotificationCenter.current()
+            center.add(request)
+            
+            print("Scheduled notification \(request) for itemID \(itemID)")
+        }
     }
     
     //mapping the fields to a key

@@ -17,6 +17,7 @@
  */
 
 import UIKit
+import UserNotifications
 
 // make a delegate protocol for the caller of this viewController to be able to respond to actions
 // of this view controller.
@@ -50,7 +51,15 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     var datePickerVisible = false
     
     @IBAction func toggleNotify(_ sender: UISwitch) {
-
+        addItemTextField.resignFirstResponder()
+        
+        if shouldRemindSwitch.isOn {
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options: [.alert, .sound]) {
+                granted, error in
+                
+            }
+        }
     }
     @IBAction func dateChanged(_ sender: UIDatePicker) {
         dueDate = sender.date
@@ -66,11 +75,13 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
             item.text = addItemTextField.text!
             item.shouldRemind = shouldRemindSwitch.isOn
             item.dueDate = dueDate
+            item.scheduleNotification()
             delegate?.itemDetailViewController(self, didFinishEditing: item, at: rowToEdit!)
         } else {
             let item = ChecklistItem(text: addItemTextField.text!)
             item.shouldRemind = shouldRemindSwitch.isOn
             item.dueDate = dueDate
+            item.scheduleNotification()
             delegate?.itemDetailViewController(self, didFinishAdding: item)
         }
     }
