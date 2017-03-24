@@ -388,6 +388,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addItemTextField" destination="jaV-ZF-myJ" id="4oQ-oe-jgd"/>
+                        <outlet property="datePicker" destination="YWR-El-8jq" id="qWP-Jb-NcY"/>
+                        <outlet property="datePickerCell" destination="Bi1-Z9-9wq" id="vV1-JF-BzP"/>
                         <outlet property="notifyDateLabel" destination="fvi-RO-dVp" id="qu2-zh-VJK"/>
                         <outlet property="notifyLabel" destination="cua-6q-Gqn" id="d1g-aX-6gy"/>
                         <outlet property="saveButton" destination="f0r-5W-yYL" id="Zks-6j-Bnf"/>
@@ -395,6 +397,30 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X9u-dd-7W0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="Bi1-Z9-9wq">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="217"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bi1-Z9-9wq" id="qgj-bm-Ndb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="YWR-El-8jq">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="512058853.70498103">
+                                    <!--2017-03-24 14:34:13 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="dateChanged:" destination="91Z-wA-1Rm" eventType="valueChanged" id="VNS-bO-dEi"/>
+                                </connections>
+                            </datePicker>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="YWR-El-8jq" firstAttribute="top" secondItem="qgj-bm-Ndb" secondAttribute="top" id="Fdw-rh-GNK"/>
+                            <constraint firstAttribute="trailing" secondItem="YWR-El-8jq" secondAttribute="trailing" id="IGt-rp-bcb"/>
+                            <constraint firstItem="YWR-El-8jq" firstAttribute="leading" secondItem="qgj-bm-Ndb" secondAttribute="leading" id="mda-AY-pX7"/>
+                        </constraints>
+                    </tableViewCellContentView>
+                </tableViewCell>
             </objects>
             <point key="canvasLocation" x="2720.8000000000002" y="135.38230884557723"/>
         </scene>
