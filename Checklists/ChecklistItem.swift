@@ -11,15 +11,17 @@ import Foundation
 class ChecklistItem: NSObject, NSCoding  {
     var text = ""
     var checked = false
+    var dueDate = Date()
+    var shouldRemind = false
+    var itemID: Int
     
     //required by NSCoding
     required init?(coder aDecoder: NSCoder) {
-        text = aDecoder.decodeObject(forKey: "Text") as! String
+        text    = aDecoder.decodeObject(forKey: "Text") as! String
         checked = aDecoder.decodeBool(forKey: "Checked")
-        super.init()
-    }
-    
-    override init() {
+        dueDate = aDecoder.decodeObject(forKey: "DueDate") as! Date
+        shouldRemind = aDecoder.decodeBool(forKey: "ShouldRemind")
+        itemID  = aDecoder.decodeInteger(forKey: "ItemID")
         super.init()
     }
     
@@ -30,6 +32,7 @@ class ChecklistItem: NSObject, NSCoding  {
     init(text: String, checked: Bool) {
         self.text = text
         self.checked = checked
+        itemID = DataModel.nextID()
         super.init()
     }
     
@@ -42,5 +45,8 @@ class ChecklistItem: NSObject, NSCoding  {
     func encode(with aCoder: NSCoder) {
         aCoder.encode(text, forKey: "Text")
         aCoder.encode(checked, forKey: "Checked")
+        aCoder.encode(dueDate, forKey: "DueDate")
+        aCoder.encode(shouldRemind, forKey: "ShouldRemind")
+        aCoder.encode(itemID, forKey: "ItemID")
     }
 }

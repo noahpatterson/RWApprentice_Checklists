@@ -34,16 +34,20 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     3. Implement delegate methods in parent
     */
     
-    
- 
     @IBOutlet weak var addItemTextField: UITextField!
-    
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var notifyLabel: UILabel!
+    @IBOutlet weak var notifyDateLabel: UILabel!
     
-    //
+    
     weak var delegate: ItemDetailViewControllerDelegate?
     var itemToEdit: ChecklistItem?
     var rowToEdit: Int?
+    var shouldNotify = false
+    
+    @IBAction func toggleNotify(_ sender: UISwitch) {
+        shouldNotify = sender.isOn
+    }
     
     @IBAction func cancel() {
         delegate?.itemDetailViewControllerDidCancel(self)
