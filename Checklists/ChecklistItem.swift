@@ -43,6 +43,7 @@ class ChecklistItem: NSObject, NSCoding  {
     }
     
     func scheduleNotification() {
+        removeNotification()
         if shouldRemind && dueDate > Date() {
             //fill out notification message
             let content = UNMutableNotificationContent()
@@ -66,6 +67,11 @@ class ChecklistItem: NSObject, NSCoding  {
             
             print("Scheduled notification \(request) for itemID \(itemID)")
         }
+    }
+    
+    func removeNotification() {
+        let center = UNUserNotificationCenter.current()
+        center.removePendingNotificationRequests(withIdentifiers: ["\(itemID)"])
     }
     
     //mapping the fields to a key

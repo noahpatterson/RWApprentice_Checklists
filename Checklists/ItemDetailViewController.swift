@@ -64,6 +64,13 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func dateChanged(_ sender: UIDatePicker) {
         dueDate = sender.date
         updateDueDateLabel()
+        
+        if dueDate < Date() && shouldRemindSwitch.isOn {
+            let alert = UIAlertController(title: "Due Date is in the past!", message: "Warning: You've scheduled a due date in the past. No notification will be recieved. Please check the date selected.", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "Ok", style: .cancel)
+            alert.addAction(alertAction)
+            present(alert, animated: true)
+        }
     }
     
     @IBAction func cancel() {
