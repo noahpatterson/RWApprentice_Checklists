@@ -311,11 +311,11 @@
                                                         <action selector="toggleNotify:" destination="91Z-wA-1Rm" eventType="valueChanged" id="F1W-UH-toO"/>
                                                     </connections>
                                                 </switch>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notify is OFF" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cua-6q-Gqn">
-                                                    <rect key="frame" x="20" y="-1" width="99" height="45"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remind Me is OFF" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cua-6q-Gqn">
+                                                    <rect key="frame" x="20" y="-1" width="148" height="45"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="45" id="OBJ-Ji-KYs"/>
-                                                        <constraint firstAttribute="width" constant="99" id="WML-CD-Qkc"/>
+                                                        <constraint firstAttribute="width" constant="148" id="WML-CD-Qkc"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -325,7 +325,7 @@
                                             <constraints>
                                                 <constraint firstItem="cua-6q-Gqn" firstAttribute="leading" secondItem="NQu-FK-4nv" secondAttribute="leading" constant="20" id="6Sh-ow-MdO"/>
                                                 <constraint firstItem="Xq0-nH-s3V" firstAttribute="centerY" secondItem="NQu-FK-4nv" secondAttribute="centerY" id="GCh-3L-uz9"/>
-                                                <constraint firstAttribute="bottom" secondItem="cua-6q-Gqn" secondAttribute="bottom" id="OPZ-UI-FNX"/>
+                                                <constraint firstAttribute="bottom" secondItem="cua-6q-Gqn" secondAttribute="bottom" constant="-1" id="OPZ-UI-FNX"/>
                                                 <constraint firstAttribute="trailing" secondItem="Xq0-nH-s3V" secondAttribute="trailing" constant="20" id="XTe-AV-GY5"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -338,16 +338,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvi-RO-dVp">
-                                                    <rect key="frame" x="273" y="-2" width="82" height="45"/>
+                                                    <rect key="frame" x="156" y="-2" width="199" height="45"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="82" id="Jz0-l1-o6w"/>
+                                                        <constraint firstAttribute="width" constant="199" id="Jz0-l1-o6w"/>
                                                         <constraint firstAttribute="height" constant="45" id="j8m-Yi-AK9"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EL7-pV-et1">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EL7-pV-et1">
                                                     <rect key="frame" x="20" y="-2" width="147" height="45"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="45" id="Z0y-9G-YIs"/>
@@ -388,10 +388,10 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addItemTextField" destination="jaV-ZF-myJ" id="4oQ-oe-jgd"/>
-                        <outlet property="notifyDateLabel" destination="EL7-pV-et1" id="D9E-qc-DSb"/>
+                        <outlet property="notifyDateLabel" destination="fvi-RO-dVp" id="qu2-zh-VJK"/>
                         <outlet property="notifyLabel" destination="cua-6q-Gqn" id="d1g-aX-6gy"/>
-                        <outlet property="notifySwitch" destination="Xq0-nH-s3V" id="upQ-Q7-VZq"/>
                         <outlet property="saveButton" destination="f0r-5W-yYL" id="Zks-6j-Bnf"/>
+                        <outlet property="shouldRemindSwitch" destination="Xq0-nH-s3V" id="O4i-mE-hGx"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X9u-dd-7W0" userLabel="First Responder" sceneMemberID="firstResponder"/>

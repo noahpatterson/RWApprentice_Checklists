@@ -38,15 +38,16 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var notifyLabel: UILabel!
     @IBOutlet weak var notifyDateLabel: UILabel!
+    @IBOutlet weak var shouldRemindSwitch: UISwitch!
     
     
     weak var delegate: ItemDetailViewControllerDelegate?
     var itemToEdit: ChecklistItem?
     var rowToEdit: Int?
-    var shouldNotify = false
+    var dueDate = Date()
     
     @IBAction func toggleNotify(_ sender: UISwitch) {
-        shouldNotify = sender.isOn
+
     }
     
     @IBAction func cancel() {
@@ -56,10 +57,13 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func save() {
         if let item = itemToEdit {
             item.text = addItemTextField.text!
+            item.shouldRemind = shouldRemindSwitch.isOn
+            item.dueDate = dueDate
             delegate?.itemDetailViewController(self, didFinishEditing: item, at: rowToEdit!)
         } else {
             let item = ChecklistItem(text: addItemTextField.text!)
-            
+            item.shouldRemind = shouldRemindSwitch.isOn
+            item.dueDate = dueDate
             delegate?.itemDetailViewController(self, didFinishAdding: item)
         }
     }
@@ -79,8 +83,11 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
             title = "Edit Item"
             addItemTextField.text = item.text
             saveButton.isEnabled = true
+            shouldRemindSwitch.isOn = item.shouldRemind
+            dueDate = item.dueDate
         }
-        // Do any additional setup after loading the view.
+        updateDueDateLabel()
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -107,5 +114,12 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
         saveButton.isEnabled = (string.characters.count > 0)
         
         return true
+    }
+    
+    func updateDueDateLabel() {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+        notifyDateLabel.text = formatter.string(from: dueDate)
     }
 }
