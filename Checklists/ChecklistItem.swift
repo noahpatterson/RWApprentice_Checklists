@@ -37,19 +37,34 @@ class ChecklistItem: NSObject, NSCoding  {
         super.init()
     }
     
+    //deinit is called when the object is about to be destroyed. Because this object is in the Checklist array, this will also be called when the checklist is destroyed.
+    deinit {
+        removeNotification()
+    }
+    
     // objects should control their own state
     func toggleChecked() {
         checked = !checked
     }
     
-    func scheduleNotification() {
+    func scheduleNotification(dueDate: Date) {
         removeNotification()
         if shouldRemind && dueDate > Date() {
+            //create TIME_EXPIRED actions
+            let snoozeAction = UNNotificationAction(identifier: "SNOOZE_ACTION", title: "Snooze", options: UNNotificationActionOptions(rawValue: 0))
+            let rescheduleAction = UNNotificationAction(identifier: "RESCHEDULE_ACTION", title: "Reschedule", options: UNNotificationActionOptions.foreground)
+            
+            //create TIME_EXPIRED category so we can set a Snooze function and A reschedule function
+            let category = UNNotificationCategory(identifier: "TIMER_EXPIRED", actions: [snoozeAction, rescheduleAction], intentIdentifiers: [], options: UNNotificationCategoryOptions(rawValue: 0))
+            
+            
+            
             //fill out notification message
             let content = UNMutableNotificationContent()
             content.title = "Reminder:"
             content.body  = text
             content.sound = UNNotificationSound.default()
+            content.categoryIdentifier = "TIMER_EXPIRED"
             
             //extract the time items from dueDate
             let calendar = Calendar(identifier: .gregorian)
@@ -63,6 +78,7 @@ class ChecklistItem: NSObject, NSCoding  {
             
             //hook it up
             let center = UNUserNotificationCenter.current()
+            center.setNotificationCategories([category])
             center.add(request)
             
             print("Scheduled notification \(request) for itemID \(itemID)")

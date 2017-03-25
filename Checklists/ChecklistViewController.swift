@@ -21,12 +21,14 @@ import UIKit
 class ChecklistViewController: UITableViewController, ItemDetailViewControllerDelegate {
 
     var checklist: Checklist!
+    var checklistTableView: UITableView!
     
     //delegation - an object will often ask another for help with certain tasks. The object does only what it is good at and lets other objects take care of the rest
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = checklist.name
+        checklistTableView = tableView
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -86,7 +88,14 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
             let controller    = navController.topViewController as! ItemDetailViewController
             controller.delegate = self
             
-            if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
+            //check sender Class
+            if sender is UITableViewCell {
+                if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
+                    controller.itemToEdit = checklist.items[indexPath.row]
+                    controller.rowToEdit  = indexPath.row
+                }
+            } else if sender is IndexPath {
+                let indexPath = sender as! IndexPath
                 controller.itemToEdit = checklist.items[indexPath.row]
                 controller.rowToEdit  = indexPath.row
             }

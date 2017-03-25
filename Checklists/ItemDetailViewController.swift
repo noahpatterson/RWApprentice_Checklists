@@ -82,13 +82,13 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
             item.text = addItemTextField.text!
             item.shouldRemind = shouldRemindSwitch.isOn
             item.dueDate = dueDate
-            item.scheduleNotification()
+            item.scheduleNotification(dueDate: dueDate)
             delegate?.itemDetailViewController(self, didFinishEditing: item, at: rowToEdit!)
         } else {
             let item = ChecklistItem(text: addItemTextField.text!)
             item.shouldRemind = shouldRemindSwitch.isOn
             item.dueDate = dueDate
-            item.scheduleNotification()
+            item.scheduleNotification(dueDate: dueDate)
             delegate?.itemDetailViewController(self, didFinishAdding: item)
         }
     }
@@ -173,6 +173,7 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
         }
         return super.tableView(tableView, indentationLevelForRowAt: newIndexPath)
     }
+    
     
     //text field delegate
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

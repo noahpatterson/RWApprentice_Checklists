@@ -13,7 +13,7 @@
         <!--Name of the Checklist-->
         <scene sceneID="bHp-gy-Shq">
             <objects>
-                <tableViewController id="C8E-YO-dU3" customClass="ChecklistViewController" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ChecklistViewController" id="C8E-YO-dU3" customClass="ChecklistViewController" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="BnI-QK-6gO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -261,7 +261,7 @@
         <!--Add item-->
         <scene sceneID="BtM-HW-r5Z">
             <objects>
-                <tableViewController id="91Z-wA-1Rm" customClass="ItemDetailViewController" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AddItemViewControlller" id="91Z-wA-1Rm" customClass="ItemDetailViewController" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="NP0-vm-kTP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -427,7 +427,7 @@
         <!--Navigation Controller-->
         <scene sceneID="wjD-L7-Fis">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rrb-G8-sl4" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="mainNavController" automaticallyAdjustsScrollViewInsets="NO" id="rrb-G8-sl4" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bgp-FI-UIc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -445,7 +445,7 @@
         <!--Navigation Controller-->
         <scene sceneID="2W5-Bz-Zag">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ohv-0t-M7d" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="AddItemNavController" automaticallyAdjustsScrollViewInsets="NO" id="Ohv-0t-M7d" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="EhC-7A-Uey">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -462,7 +462,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="PPJ-GB-Z4s"/>
+        <segue reference="fmj-qU-wAs"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.015686274509803921" green="0.66274509803921566" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
 </document>
