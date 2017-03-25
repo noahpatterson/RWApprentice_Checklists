@@ -55,30 +55,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
             
             if response.actionIdentifier == "RESCHEDULE_ACTION" {
-                if let item = checklistItem {
-//                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//                    let mainNavVC = storyboard.instantiateViewController(withIdentifier: "mainNavController")
-//                    let allListsVC = mainNavVC.childViewControllers[0] as! AllListsViewController
-//                    
-//                    allListsVC.performSegue(withIdentifier: "ShowChecklist", sender: dataModel.checklists[checklistRow])
-//                    
-//                    let checklistVC = (window!.rootViewController! as! UINavigationController).topViewController as! ChecklistViewController
-//                
-//
-//                    let indexPath = IndexPath(row: itemRow!, section: 0)
-//                    let cell = checklistVC.checklistTableView.cellForRow(at: indexPath)
-//                    checklistVC.performSegue(withIdentifier: "EditItem", sender: cell)
+                if let _ = checklistItem {
                     
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let checklist = dataModel.checklists[checklistRow]
                     
                     let checklistVC = storyboard.instantiateViewController(withIdentifier: "ChecklistViewController") as! ChecklistViewController
                     checklistVC.checklist = checklist
-                    
-//                    let itemDetailVC = storyboard.instantiateViewController(withIdentifier: "AddItemViewControlller") as! ItemDetailViewController
-//                    itemDetailVC.itemToEdit = item
-//                    itemDetailVC.rowToEdit  = itemRow
-//                    itemDetailVC.delegate   = checklistVC
                     
                     let rootVC = self.window?.rootViewController!
                     if rootVC is UINavigationController
